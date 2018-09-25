@@ -9,6 +9,12 @@
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/index.html"
+        },
+        {
+            "name": "Launch Lock Game",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_4/index.html"
         }
     ]
 }

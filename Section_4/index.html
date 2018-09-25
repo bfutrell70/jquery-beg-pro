@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Complete Course</title>
+</head>
+<body>
+    <h1>Welcome to jQuery Course</h1>
+    <div id="start">Start</div>
+    <div id="output">
+        <input type="number" name="lock1" min="0" max="9">
+        <input type="number" name="lock2" min="0" max="9">
+        <input type="number" name="lock3" min="0" max="9">
+        <div class="btn">Open Lock &#128274</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('input[type="number"]').css({
+            color: "white",
+            fontSize: "3em",
+            width: "60px",
+            border: "1px solid black",
+            backgroundColor: "black"
+        });
+
+        $(".btn").css({
+            backgroundColor: "black",
+            color: "white",
+            width: "160px",
+            fontSize: "1.5em",
+            padding: "15px",
+            margin: "25px auto 0px",
+            border: "1px solid black",
+            textAlign: "center"
+        });
+
+        $("#output").css({
+            backgroundColor: "#333",
+            width: "300px",
+            padding: "15px",
+            border: "1px solid black",
+            textAlign: "center"
+        });
+
+    })
+    </script>
+
+</body>
+</html>
