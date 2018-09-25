@@ -15,12 +15,29 @@
         <input type="number" name="lock1" min="0" max="9">
         <input type="number" name="lock2" min="0" max="9">
         <input type="number" name="lock3" min="0" max="9">
-        <div class="btn">Open Lock &#128274</div>
+        <div class="btn" id="checkLock">Open Lock &#128274</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
     $(document).ready(function() {
+        $('#output').hide();
+
+        $("#start").click(startGame); 
+
+        function startGame() {
+            $('#start').hide();
+            $('#output').show();
+
+            // loop through the number elements and set them to 5.
+            for(x = 0; x < $('input[type="number"]').length; x++)
+            {
+                $('input[type="number"]').eq(x).val('5');
+            }
+            
+            $('small').html('Red background is low : Blue background is high');
+        }
+
         $('input[type="number"]').css({
             color: "white",
             fontSize: "3em",
