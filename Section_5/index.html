@@ -32,6 +32,16 @@
             // hide steps 2 and 3
             $('.step').css('display', 'none')
 
+            $('a').click(function(event) {
+                // prevents the default action from firing off
+                event.preventDefault();
+                
+                console.log($(this));
+
+                // get the parent element
+                var parent = $(this).parent().parent;
+                console.log(parent);
+            });
 
         })
     </script>
