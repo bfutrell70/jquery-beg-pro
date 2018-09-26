@@ -5,17 +5,95 @@
 </head>
 <body>
     <h1>Welcome to jQuery Course</h1>
-    <div id="start">Start</div>
+    <div id="start" class="btn">Start</div>
+    
     <div id="output">
+        <small>
+            Message
+        </small>
+
         <input type="number" name="lock1" min="0" max="9">
         <input type="number" name="lock2" min="0" max="9">
         <input type="number" name="lock3" min="0" max="9">
-        <div class="btn">Open Lock &#128274</div>
+        <div class="btn" id="checkLock">Open Lock &#128274</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
     $(document).ready(function() {
+        var ourSecretNum = '';
+        
+        $('#output').hide();
+
+        $("#start").click(startGame); 
+
+        $("#checkLock").click(openLock);
+
+        // handles setting up the page to start the game
+        function startGame() {
+            ourSecretNum = Math.floor(Math.random() * (999 - 100 + 1) + 100).toString();
+
+            $('#start').hide();
+            $('#output').show();
+
+            // loop through the number elements and set them to 5.
+            for(x = 0; x < $('input[type="number"]').length; x++)
+            {
+                $('input[type="number"]').eq(x).val('5');
+            }
+            
+            $('small').html('Red background is low : Blue background is high');
+        }
+
+        // checks if the user's combination matches the one created randomly
+        function openLock() {
+            var win = 0;
+
+            for(x = 0; x < $('input[type="number"]').length; x++)
+            {
+                var guessNumber = $('input[type="number"]').eq(x);
+                var response = checkNumber(guessNumber.val(), ourSecretNum[x]);
+
+                if (response.checker)
+                {
+                    win++;
+                }
+
+                guessNumber.css({backgroundColor: response.background});
+            }
+
+            if (win === 3)
+            {
+                $("#start").show();
+                $("small").html("You got it! <br> " + ourSecretNum);
+            }
+        }
+
+        // checks if the user's selection matches the digit from the
+        // random number
+        // returns if they matched and the background color to assign to the number input
+        function checkNumber(a, b)
+        {
+            var response = {};
+            
+            if (a > b)
+            {
+                response.checker = false;
+                response.background = "blue";
+            }
+            else if (a < b)
+            {
+                response.checker = false;
+                response.background = "red";
+            }
+            else{
+                response.checker = true;
+                response.background = "green";
+            }
+
+            return response;
+        }
+
         $('input[type="number"]').css({
             color: "white",
             fontSize: "3em",
@@ -43,6 +121,13 @@
             textAlign: "center"
         });
 
+        $('small').css({
+            color: "white",
+            fontSize: "1em",
+            padding: "15px",
+            marginBottom: "15px",
+            display: "block"
+        })
     })
     </script>
 
