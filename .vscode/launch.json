@@ -8,7 +8,7 @@
             "name": "Launch index.html",
             "type": "chrome",
             "request": "launch",
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceFolder}/Sections_1_to_3/index.html"
         },
         {
             "name": "Launch Lock Game",
