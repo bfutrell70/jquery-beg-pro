@@ -15,6 +15,12 @@
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_4/index.html"
+        },
+        {
+            "name": "Launch Section 5",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_5/index.html"
         }
     ]
 }
