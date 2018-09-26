@@ -21,11 +21,18 @@
 
     <script>
     $(document).ready(function() {
+        var ourSecretNum = '';
+        
         $('#output').hide();
 
         $("#start").click(startGame); 
 
+        $("#checkLock").click(openLock);
+
         function startGame() {
+            ourSecretNum = Math.floor(Math.random() * (999 - 100 + 1) + 100).toString();
+            console.log(ourSecretNum);
+
             $('#start').hide();
             $('#output').show();
 
@@ -36,6 +43,27 @@
             }
             
             $('small').html('Red background is low : Blue background is high');
+        }
+
+        function openLock() {
+            var win = 0;
+
+            for(x = 0; x < $('input[type="number"]').length; x++)
+            {
+                var guessNumber = $('input[type="number"]').eq(x);
+                console.log(ourSecretNum[x], guessNumber.val());
+                // if (guessNumber === ourSecretNum[x]])
+                // {
+                //     win++;
+                // }
+            }
+
+            if (win === 3)
+            {
+                $("#start").show();
+                //$("#output").hide();
+                $("small").html("You got it! <br> " + ourSecretNum);
+            }
         }
 
         $('input[type="number"]').css({
