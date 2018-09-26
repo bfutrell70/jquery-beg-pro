@@ -29,9 +29,9 @@
 
         $("#checkLock").click(openLock);
 
+        // handles setting up the page to start the game
         function startGame() {
             ourSecretNum = Math.floor(Math.random() * (999 - 100 + 1) + 100).toString();
-            console.log(ourSecretNum);
 
             $('#start').hide();
             $('#output').show();
@@ -45,25 +45,53 @@
             $('small').html('Red background is low : Blue background is high');
         }
 
+        // checks if the user's combination matches the one created randomly
         function openLock() {
             var win = 0;
 
             for(x = 0; x < $('input[type="number"]').length; x++)
             {
                 var guessNumber = $('input[type="number"]').eq(x);
-                console.log(ourSecretNum[x], guessNumber.val());
-                // if (guessNumber === ourSecretNum[x]])
-                // {
-                //     win++;
-                // }
+                var response = checkNumber(guessNumber.val(), ourSecretNum[x]);
+
+                if (response.checker)
+                {
+                    win++;
+                }
+
+                guessNumber.css({backgroundColor: response.background});
             }
 
             if (win === 3)
             {
                 $("#start").show();
-                //$("#output").hide();
                 $("small").html("You got it! <br> " + ourSecretNum);
             }
+        }
+
+        // checks if the user's selection matches the digit from the
+        // random number
+        // returns if they matched and the background color to assign to the number input
+        function checkNumber(a, b)
+        {
+            var response = {};
+            
+            if (a > b)
+            {
+                response.checker = false;
+                response.background = "blue";
+            }
+            else if (a < b)
+            {
+                response.checker = false;
+                response.background = "red";
+            }
+            else{
+                response.checker = true;
+                response.background = "green";
+            }
+
+            return response;
         }
 
         $('input[type="number"]').css({
