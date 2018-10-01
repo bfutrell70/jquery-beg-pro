@@ -35,7 +35,8 @@
             // hide steps 2 and 3
             $('.hiddenStep').css('display', 'none')
 
-            $('a').click(function(event) {
+            // limit the anchor tag click handler to only include those with an href of '#'
+            $('a[href="#"]').click(function(event) {
                 // prevents the default action from firing off
                 event.preventDefault();
                 
