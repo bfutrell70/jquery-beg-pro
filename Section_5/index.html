@@ -7,19 +7,20 @@
 
 <body>
     <h1>Welcome to jQuery Course - Section 5!</h1>
+    <a href="http://www.google.com" target="_blank">Google</a>
     <form>
         <div class="content">
-            <div>
+            <div class="step">
                 <h1>First</h1>
                 This is the first Page
                 <div><a href="#">Next</a></div>
             </div>
-            <div class="step">
+            <div class="step hiddenStep">
                 <h1>Second</h1>
                 This is the second Page
                 <div><a href="#">Next</a></div>
             </div>
-            <div class="step">
+            <div class="step hiddenStep">
                 <h1>Third</h1>
                 This is the third Page
                 <div><a href="#">Next</a></div>
@@ -32,20 +33,29 @@
     <script>
         $(document).ready(function() {
             // hide steps 2 and 3
-            //$('.step').css('display', 'none')
+            $('.hiddenStep').css('display', 'none')
 
             $('a').click(function(event) {
                 // prevents the default action from firing off
                 event.preventDefault();
                 
                 // get the parent element
-                var parent = $(this).parent().parent();
+                var parent = $(this).closest('.step');
 
                 // determine the index of the div within the container div
                 // grabbing only div elements within the content div
                 var mainContent = $('.content>div');
-                var index = mainContent.index(parent);
-                console.log(index);
+                var index = mainContent.index(parent) + 1;
+                if (index == mainContent.length)
+                {
+                    index = 0;
+                }
+
+                // hide the one that was clicked
+                parent.css('display', 'none');
+
+                // show the next div
+                mainContent.eq(index).css('display', 'block');
             });
 
         })
