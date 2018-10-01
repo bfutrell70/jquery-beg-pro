@@ -37,36 +37,36 @@
             })
 
             function validateMe() {
-                console.log("validate Me");
+                $('label').css('color','black');
                 
                 var error = [];
                 var emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 $('#myForm input').each(function() {
-                    console.log($(this).val(), $(this).val().length, $(this).attr('name'));
-
                     var inputName = $(this).attr('name');
 
-                    if ($(this).val().length > 4)
-                    {
-                        console.log($(this).attr('name'));
+                    if ($(this).val().length > 4) {
 
                         // only check email if this is the email field
-                        if (inputName === 'email' && !emailReg.test($(this).val()))
-                        {
+                        if (inputName === 'email' && !emailReg.test($(this).val())) {
                             error.push($(this.attr('name')));
                         }
                     }
-                    else
-                    {
+                    else {
                         error.push($(this).attr('name'));
                     }
                 })
                 
-                if (error.length === 0) { $('#myForm').submit(); }
+                if (error.length === 0) { 
+                    $('#myForm').submit(); 
+                }
+                else {
+
+                    for (x = 0; x < error.length; x++) {
+                        $('label[for="' + error[x] + '"]').css('color','red');
+                    }
+                }
             }
         })
-
-        
     </script>
 </body>
 
