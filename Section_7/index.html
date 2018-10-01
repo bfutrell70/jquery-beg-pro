@@ -9,16 +9,48 @@
     <h1>Welcome to jQuery Course - Section 7!</h1>
 
     <div id="start">Start Game</div>
+    <div id="gamearea">    
+        <div id="findme">Match this color<br>
+            <span id="message"></span>
+        </div>
 
-    
+        <div id="output">
+            
+        </div>
+    </div>
 
     <!-- Commented out the CDN to allow me to work on this without an internet connection -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            // hide the game board
+            $('#gamearea').hide();
 
+            $('#start').click(startGame);
+            $('#start').css({
+                border: '1px solid black',
+                textAlign: 'center',
+                padding: '10px',
+                width: '150px',
+                backgroundColor: 'red',
+                fontSize: '2em',
+                marginBottom: '10px',
+                color: 'white'
+            });
+            $('#findme').css({
+                border: '1px solid black',
+                textAlign: 'center',
+                padding: '0',
+                width: '400px',
+                fontSize: '2em',
+                height: '100px',
+                display: 'inline-block'
+            });
 
+            function startGame() {
+                console.log("game started");
+            };
         })
     </script>
 </body>
