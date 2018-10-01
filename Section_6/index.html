@@ -40,13 +40,21 @@
                 console.log("validate Me");
                 
                 var error = [];
-
+                var emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 $('#myForm input').each(function() {
                     console.log($(this).val(), $(this).val().length, $(this).attr('name'));
-                    
+
+                    var inputName = $(this).attr('name');
+
                     if ($(this).val().length > 4)
                     {
-                        consolet.log($(this).attr('name'));
+                        console.log($(this).attr('name'));
+
+                        // only check email if this is the email field
+                        if (inputName === 'email' && !emailReg.test($(this).val()))
+                        {
+                            error.push($(this.attr('name')));
+                        }
                     }
                     else
                     {
