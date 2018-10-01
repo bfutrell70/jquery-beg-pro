@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Launch index.html",
             "type": "chrome",
@@ -21,6 +22,12 @@
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_5/index.html"
+        },
+        {
+            "name": "Launch Section 6",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_6/index.html"
         }
     ]
 }
