@@ -26,21 +26,26 @@
             </div>
         </div>
     </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Commented out the CDN to allow me to work on this without an internet connection -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             // hide steps 2 and 3
-            $('.step').css('display', 'none')
+            //$('.step').css('display', 'none')
 
             $('a').click(function(event) {
                 // prevents the default action from firing off
                 event.preventDefault();
                 
-                console.log($(this));
-
                 // get the parent element
-                var parent = $(this).parent().parent;
-                console.log(parent);
+                var parent = $(this).parent().parent();
+
+                // determine the index of the div within the container div
+                // grabbing only div elements within the content div
+                var mainContent = $('.content>div');
+                var index = mainContent.index(parent);
+                console.log(index);
             });
 
         })
