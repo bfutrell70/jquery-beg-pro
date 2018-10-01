@@ -31,8 +31,18 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            // grab the form button
+            $('button').click(function() {
+                validateMe();
+            })
 
+            function validateMe() {
+                console.log("validate Me");
+                $('#myForm').submit();
+            }
         })
+
+        
     </script>
 </body>
 
