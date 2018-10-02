@@ -44,7 +44,6 @@
                 padding: '0',
                 width: '400px',
                 fontSize: '2em',
-                height: '100px',
                 display: 'inline-block'
             });
 
@@ -64,16 +63,31 @@
 
                 for (var row = 0; row < x; row++) {
                     html+='<div class="row">';
+                    
                     for (var col = 0; col < x; col++){
                         html +='<div class="cell">0</div>';
                     }
+                    
                     html += '</div>';
                 }
 
                 $('#output').html(html);
 
                 // have to apply styles after it is added to the output div
-
+                // because they are added after the DOM is loaded.
+                $('.cell').css({
+                    border: '1px solid black',
+                    textAlign: 'center',
+                    padding: '0',
+                    margin: '0',
+                    width: '100px',
+                    height: '100px',
+                    fontSize: '2em',
+                    marginBottom: '10px',
+                    color: 'black',
+                    // this will place them side by side
+                    display: 'inline-block'                    
+                });
             };
 
             function pickMyColor() {
