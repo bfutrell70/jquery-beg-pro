@@ -24,6 +24,8 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            var colorArray = [];
+
             // hide the game board
             $('#gamearea').hide();
 
@@ -65,7 +67,11 @@
                     html+='<div class="row">';
                     
                     for (var col = 0; col < x; col++){
-                        html +='<div class="cell">0</div>';
+                        var trackColor = randomColor();
+                        colorArray.push(trackColor);
+                        console.log(trackColor);
+
+                        html +='<div class="cell" style="background-color:' + trackColor + '">0</div>';
                     }
                     
                     html += '</div>';
@@ -83,7 +89,6 @@
                     width: '100px',
                     height: '100px',
                     fontSize: '2em',
-                    marginBottom: '10px',
                     color: 'black',
                     // this will place them side by side
                     display: 'inline-block'                    
@@ -93,6 +98,10 @@
             function pickMyColor() {
 
             };
+
+            function randomColor() {
+                return '#'+ ((1<<24)*Math.random() | 0).toString(16);
+            }
         })
     </script>
 </body>
