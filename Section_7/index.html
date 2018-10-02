@@ -49,7 +49,35 @@
             });
 
             function startGame() {
+                makeBoard();
+                pickMyColor();
+                
+                $('#start').hide();
+                $('#gamearea').show();
+                
                 console.log("game started");
+            };
+
+            function makeBoard() {
+                var x = 4;
+                var html= '';
+
+                for (var row = 0; row < x; row++) {
+                    html+='<div class="row">';
+                    for (var col = 0; col < x; col++){
+                        html +='<div class="cell">0</div>';
+                    }
+                    html += '</div>';
+                }
+
+                $('#output').html(html);
+
+                // have to apply styles after it is added to the output div
+
+            };
+
+            function pickMyColor() {
+
             };
         })
     </script>
