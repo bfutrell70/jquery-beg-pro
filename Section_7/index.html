@@ -49,6 +49,17 @@
                 display: 'inline-block'
             });
 
+            // This allows elements with a class of 'cell' to be handled before they
+            // are made. At this point the div elements with a class of 'cell' don't exist
+            // yet but the div with an ID of 'output' DOES exist.
+            $('#output').on('click', '.cell', checkCell);
+
+            // handles the click of an element with a class of 'cell'.
+            function checkCell() {
+                // color of the clicked element
+                var curColor = $(this).css('backgroundColor') 
+            }
+
             function startGame() {
                 makeBoard();
                 pickMyColor();
@@ -80,7 +91,7 @@
                 $('#output').html(html);
 
                 // have to apply styles after it is added to the output div
-                // because they are added after the DOM is loaded.
+                // because they are added dynamically after the DOM is loaded.
                 $('.cell').css({
                     border: '1px solid black',
                     textAlign: 'center',
@@ -96,11 +107,19 @@
             };
 
             function pickMyColor() {
+                // randomly choose an index from the array of colors
+                var index = Math.floor(Math.random() * colorArray.length);
+                
+                // get the color from the index 
+                // splice; starting point, number of elements
+                var picked = colorArray.splice(index, 1);
 
+                // set background color of the div with 'Match this color'
+                $('#findme').css('background-color', picked);
             };
 
             function randomColor() {
-                return '#'+ ((1<<24)*Math.random() | 0).toString(16);
+                return '#'+ ((1<<24) * Math.random() | 0).toString(16);
             }
         })
     </script>
