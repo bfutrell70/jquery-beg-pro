@@ -73,7 +73,12 @@
 
                     // choose a new color to pick
                     pickMyColor();
+                    $('#message').html('Correct Great :)');
                 } 
+                else
+                {
+                    $('#message').html('Sorry Wrong Color :(');
+                }
             }
 
             function addNewColor() {
