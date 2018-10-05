@@ -44,7 +44,7 @@
                 border: '1px solid black',
                 textAlign: 'center',
                 padding: '0',
-                width: '400px',
+                width: '600px',
                 fontSize: '2em',
                 display: 'inline-block'
             });
@@ -124,7 +124,7 @@
                     textAlign: 'center',
                     padding: '0',
                     margin: '0',
-                    width: '100px',
+                    width: '150px',
                     height: '100px',
                     fontSize: '2em',
                     color: 'black',
@@ -146,7 +146,18 @@
             };
 
             function randomColor() {
-                return '#'+ ((1<<24) * Math.random() | 0).toString(16);
+                // this was calculating a 6 (or 5) digit hex color value
+                // toString(16) converts to hexadecimal
+                //return '#'+ ((1<<24) * Math.random() | 0).toString(16);
+
+                // using RGB values
+                var r = Math.floor(Math.random() * 256);
+                var g = Math.floor(Math.random() * 256);
+                var b = Math.floor(Math.random() * 256);
+
+                var rgb='rgb(' + r + ',' + g + ',' + b +')';
+                return rgb;
+
             }
         })
     </script>
