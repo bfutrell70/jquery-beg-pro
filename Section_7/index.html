@@ -57,7 +57,29 @@
             // handles the click of an element with a class of 'cell'.
             function checkCell() {
                 // color of the clicked element
-                var curColor = $(this).css('backgroundColor') 
+                var curColor = $(this).css('backgroundColor')
+
+                // see if the element has the same background value as the selected one
+                if (curColor == $('#findme').css('backgroundColor'))
+                {
+                    // get the number of the selected element and increment it
+                    var cntValue = Number($(this).text());
+                    cntValue++;
+                    $(this).text(cntValue);
+
+                    // change the background color of the selected element
+                    // to prevent the user from selecting it again for more points
+                    $(this).css('backgroundColor', addNewColor());
+
+                    // choose a new color to pick
+                    pickMyColor();
+                } 
+            }
+
+            function addNewColor() {
+                var trackColor = randomColor();
+                colorArray.push(trackColor);
+                return trackColor;
             }
 
             function startGame() {
