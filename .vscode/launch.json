@@ -28,12 +28,18 @@
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_6/index.html"
-        }
+        },
         {
             "name": "Launch Section 7",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_7/index.html"
+        },
+        {
+            "name": "Launch Section 8",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_8/index.html"
         }
     ]
 }

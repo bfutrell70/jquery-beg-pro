@@ -6,15 +6,32 @@
 <body>
     <h1>Welcome Complete jQuery Course</h1>
     
-    <div class="btn">CLICK HERE!!!</div>
-    
-    <input type="text" name="first" value="Brian">
-    <input type="text" name="last" value="Futrell">
-    
-    <input type="checkbox" name="one" value="one">
-    <input type="checkbox" name="two" value="two">
-    <input type="checkbox" name="three" value="three">
-    <input type="range" name="picker">
+    <div>
+        <div>
+            <form id="myForm">
+                <label for="first">FirstName: </label>
+                <input type="text" name="first" placeholder="first">
+                <br>
+                <label for="last">LastName: </label>
+                <input type="text" name="last" placeholder="last">
+                <br>
+                <label for="email">Email: </label>
+                <input type="text" name="email" placeholder="email">
+                <br>
+                <label for="password">Password: </label>
+                <input type="password" name="password">
+                <br>
+                <button type="button">Submit</button>
+                TOS? <input type="checkbox" name="agree1"><br>
+                Do you agree<input type="checkbox" name="agree2"><br>
+            </form>
+        </div>
+        <select class="sel">
+            <option value="blue">blue</option>
+            <option value="red">red</option>
+            <option value="green">green</option>
+        </select>
+    </div>
     
     <script src="node_modules/jquery/dist/jquery.js"></script>
 
