@@ -1,12 +1,16 @@
 $(function () {
-    $('span').css({
-        "border-color": "red",
-        "border-width": "1px",
-        "border-style": "solid",
-        "padding": "1px"
-    });
+    $('input').css("background-color", "yellow");
 
-    $('span').click(function() {
-        $(this).siblings().text("I'm a Brother or Sister");
+    $('input[type="date"]').css("background-color", "red");
+
+    $('input[type="color"]').css("background-color", 'blue');
+    $('.btn').click(function() {
+        // only get checkboxes that are checked
+        var myCheckboxes = $('input[type="checkbox"]').attr({
+            checked: true
+        });
+
+        console.log(myCheckboxes.val());
     })
+    
 })
