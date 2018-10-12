@@ -1,4 +1,6 @@
 $(function() {
+    // section 10.2
+    
     var counter = 0;
 
     $('.highlight').click(function() {
