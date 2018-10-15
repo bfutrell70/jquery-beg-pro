@@ -6,6 +6,7 @@ $(function() {
     $('.highlight').click(function() {
         counter++;
 
+        // clears the contents of the selected element
         $(this).empty();
 
         // added before the clicked element.
@@ -13,8 +14,10 @@ $(function() {
         // if there is text already there it is added after the
         // existing text and the clicked element
         $(this).before('BEFORE ' + counter);
+
         // added to the end of the contents of the clicked elememt
         $(this).append('clicked ' + counter);
+        
         // added to the beginning of the contents of the clicked element
         $(this).prepend('Pre ' + counter);
 
