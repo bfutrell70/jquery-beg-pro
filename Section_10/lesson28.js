@@ -5,6 +5,9 @@ $(function() {
     var counter = 0;
     $('.highlight').click(function() {
         counter++;
+
+        $(this).empty();
+
         // added before the clicked element.
         // in this case the div with a class of 'highlight'
         // if there is text already there it is added after the
