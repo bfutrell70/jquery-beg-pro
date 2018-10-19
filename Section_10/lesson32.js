@@ -41,15 +41,12 @@ $(function() {
 
             var el = $('input[name="' + itemParts[0] + '"]');
             
+            // removes any elements after the one in 'el' with a class of 'error'
             el.nextAll('.error').remove();
 
             if (el.val() == '') {
                 el.css('background-color', 'red');
-                //el.nextAll('.error').remove();
                 el.after('<div class="error">' + itemParts[0] +' is missing</div>');    
-            }
-            else {
-                //el.nextAll('.error').remove();
             }
 
             $('#mainDiv').append(itemParts[0] + '\'s value is ' + itemParts[1] + '<br>');
