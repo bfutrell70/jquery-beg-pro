@@ -3,10 +3,44 @@
 
 <head>
     <title>Testing!</title>
+    <style>
+        .active {
+            color: #fff;
+            background-color: purple;
+            text-decoration: none;
+        }
+
+        #navBar ul li a, 
+        #navBar ul li a:visited{
+            color: #333;
+            padding: 10px;
+            line-height: 30px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="wrapper">
+        <div id="navBar">
+            <div id="container">
+                <nav id="topnav">
+                    <ul>
+                        <li><a href="#home" class="active">
+                            <span>Home</span></a>
+                        </li>
+                        <li><a href="#work">
+                            <span>Work</span></a>
+                        </li>
+                        <li><a href="#contact">
+                            <span>Contact</span></a>
+                        </li>
+                        <li><a href="#about">
+                            <span>About</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
         <h1>Welcome Complete jQuery Course - Section 10!</h1>
         <div id="output"></div>
         <div><img src=""></div>
