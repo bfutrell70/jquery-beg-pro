@@ -44,13 +44,20 @@
         <h1>Welcome Complete jQuery Course - Section 10!</h1>
         <div id="output"></div>
         <div><img src=""></div>
-        <form>
-            <input type="text">
-            <input type="color">
-            <input type="color">
-            <input type="submit">
-            <input type="text">
+        <form id="myForm">
+            <label for="first">FirstName: </label>
+            <input type="text" name="first">
             <br>
+            <label for="last">LastName: </label>
+            <input type="text" name="last">
+            <br>
+            <label for="email">Email: </label>
+            <input type="text" name="email">
+            <br>
+            <label for="password">Password: </label>
+            <input type="password" name="password">
+            <br>
+            <button type="button">Submit</button>
         </form>
     </div>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
