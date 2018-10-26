@@ -58,6 +58,12 @@
             "type": "firefox",
             "request": "launch",
             "file": "${workspaceFolder}/Section_10/index.html"
+        },
+        {
+            "name": "Launch Section 11",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_11/index.html"
         }
     ]
 }
