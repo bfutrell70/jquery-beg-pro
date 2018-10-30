@@ -1,7 +1,6 @@
 $(function() {
     // section 11.4
     // jQuery Animate Even More
-    // stopped at 1:17
 
     // in order for the 'left' animate step to work the position has to be set
     // to relative or absolute
