@@ -6,64 +6,64 @@
     "configurations": [
 
         {
-            "name": "Launch index.html",
+            "name": "Sections 1-3",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Sections_1_to_3/index.html"
         },
         {
-            "name": "Launch Lock Game",
+            "name": "Section 4 - Launch Lock Game",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_4/index.html"
         },
         {
-            "name": "Launch Section 5",
+            "name": "Section 5",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_5/index.html"
         },
         {
-            "name": "Launch Section 6",
+            "name": "Section 6",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_6/index.html"
         },
         {
-            "name": "Launch Section 7",
+            "name": "Section 7",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_7/index.html"
         },
         {
-            "name": "Launch Section 8",
+            "name": "Section 8",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_8/index.html"
         },
         {
-            "name": "Launch Section 9",
+            "name": "Section 9",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_9/index.html"
         },
         {
-            "name": "Launch Section 10",
+            "name": "Section 10",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_10/index.html"
         },
         {
-            "name": "Firefox-Section 10",
-            "type": "firefox",
-            "request": "launch",
-            "file": "${workspaceFolder}/Section_10/index.html"
-        },
-        {
-            "name": "Launch Section 11",
+            "name": "Section 11",
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_11/index.html"
+        },
+        {
+            "name": "Section 12",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_12/index.html"
         }
     ]
 }
