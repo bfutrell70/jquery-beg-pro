@@ -1,6 +1,7 @@
 $(function() {
     // section 12.4
-    // jquery
+    // jquery Load Details
+    // ** stopped at 1:55 **
 
     $('#output1, #output2').css({
         'position': 'relative'
@@ -34,6 +35,15 @@ $(function() {
             // only loads the element with an ID of two from the HTML file
             //$('h1').load('hello.html #two')
         }
+
+        if ($(this).hasClass('btn-3')) {
+            var url = 'hello.html';
+            $('#output1').load(url, function(responseText, status, xhr) {
+                console.log(responseText);
+                console.log(status);
+                console.log(xhr);
+            });
+        }        
 
     });
     
