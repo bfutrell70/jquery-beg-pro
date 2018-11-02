@@ -1,7 +1,6 @@
 $(function() {
     // section 12.4
     // jquery Load Details
-    // ** stopped at 1:55 **
 
     $('#output1, #output2').css({
         'position': 'relative'
