@@ -38,10 +38,16 @@ $(function() {
 
         if ($(this).hasClass('btn-3')) {
             var url = 'hello.html';
+
+            // returns the contents of the HTML file as a string
             $('#output1').load(url, function(responseText, status, xhr) {
                 console.log(responseText);
                 console.log(status);
                 console.log(xhr);
+                if (status == "success") {
+                    console.log("Successfully connected");
+                }
+                
             });
         }        
 
