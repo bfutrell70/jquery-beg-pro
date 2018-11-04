@@ -22,7 +22,7 @@ $(function() {
                 var randomPic = data.results[0].picture.large;
                 var randomName = data.results[0].name.first + " "  + data.results[0].name.last;
 
-                var html = '<img src="' + randomPic + '">' +
+                var html = '<img src="' + randomPic + '"><br>' +
                             '<p>' + randomName + '</p>'
 
                 $('#output1').html(html);
