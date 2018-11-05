@@ -55,7 +55,15 @@ $(function() {
             url: 'https://api.github.com/gists',
             dataType: 'json',
             success: (function(data) {
-                console.log(data);
+                var html = '<ul>';
+
+                $.each(data, function(i, v) {
+                    html += '<li><b>' + v.created_at + '</b> ' + v.description + '</li>';
+                })
+
+                html += '</ul>';
+
+                $('#output1').html(html);
             })
         })
     })
