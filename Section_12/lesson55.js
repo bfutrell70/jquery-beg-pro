@@ -1,6 +1,7 @@
 $(function() {
     // section 12.10
     // More APIs more AJAX
+    // stopped at 1:39
 
     $('#output1, #output2').css({
         'position': 'relative'
@@ -41,26 +42,21 @@ $(function() {
 
                 $.each(data.results, function(i, v) {
                     html += '<span><img src="' + v.picture.large + '"></span>';
-                    //html += '<img src="' + v.picture.large + '">';
-                    // if ((i + 1) % 5 == 0)
-                    // {
-                    //     html += "<br>";
-                    // }
                 })
-
-                // for (var i = 0; i < data.results.length; i++)
-                // {
-                //     var result = data.results[i];
-                //     html += '<img src="' + result.picture.large + '">';
-                //     if ((i + 1) % 5 == 0)
-                //     {
-                //         html += "<br>";
-                //     }
-                // }
 
                 $('#output1').html(html);
             })
         })
     })
-    
+
+    $('.btn-3').click(function() {
+        console.log("btn-3 clicked");
+        $.ajax({
+            url: 'https://api.github.com/gists',
+            dataType: 'json',
+            success: (function(data) {
+                console.log(data);
+            })
+        })
+    })
 })
