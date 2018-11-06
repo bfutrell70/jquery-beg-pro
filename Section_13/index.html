@@ -14,11 +14,25 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            
-            $('#searchButton').click(function() {
-                console.log('clicked');
-            })
+            $('#searchButton').click(searchYoutube);
         })
+
+        function searchYoutube() {
+            var url = 'https://www.googleapis.com/youtube/v3/search';
+
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'GET',
+                data: {
+                    q: 'lunch%20on',
+                    part: 'snippet',
+                    key: 'AIzaSyAoRJ_lJh1RmVR3nboH1GzHK8aKK-b1VvE'
+                }
+            }).done(function(data) {
+                console.log(data);
+            })
+        }
     </script>
 </body>
 
