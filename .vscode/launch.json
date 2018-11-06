@@ -64,6 +64,12 @@
             "type": "chrome",
             "request": "launch",
             "file": "${workspaceFolder}/Section_12/index.html"
+        },
+        {
+            "name": "Section 13",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/Section_13/index.html"
         }
     ]
 }
