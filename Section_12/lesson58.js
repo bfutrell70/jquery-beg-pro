@@ -25,13 +25,25 @@ $(function() {
     $('.btn-2').click(function() {
         var url = 'https://swapi.co/api/people/?format=json';
         $.getJSON(url, function(data) {
-            console.log(data)
-            //$('#output1').html(data);
+            var html = "<h2>Star Wars Characters</h2>";
+            $.each(data.results, function(i, v) {
+                html += v.name + "</br>";
+            })
+            $('#output1').html(html);
         });
     })
 
+    // Marvel Universe Characters
     $('.btn-3').click(function() {
-
+        var url = 'https://raw.githubusercontent.com/mattdesl/marvel-characters/master/characters.json';
+        $.getJSON(url, function(data) {
+            console.log(data)
+            var html = "<h2>Marvel Universe Characters</h2>";
+            $.each(data, function(i, v) {
+                html += v + "</br>";
+            })
+            $('#output1').html(html);
+        });
     })
 
 })
