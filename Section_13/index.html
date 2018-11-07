@@ -22,7 +22,6 @@
         function searchYoutube() {
             var url = 'https://www.googleapis.com/youtube/v3/search';
             var searchText = encodeURI($('#txtSearch').val());
-            console.log(searchText);
             $.ajax({
                 url: url,
                 dataType: 'json',
@@ -30,10 +29,14 @@
                 data: {
                     q: searchText,
                     part: 'snippet',
-                    key: 'AIzaSyAoRJ_lJh1RmVR3nboH1GzHK8aKK-b1VvE'
+                    key: 'AIzaSyAoRJ_lJh1RmVR3nboH1GzHK8aKK-b1VvE',
+                    maxResults: 25  //,
+                    //pageToken: 'CBkQAA'
                 }
             }).done(function(data) {
-                console.log(data);
+                $.each(data['items'], function(index, value) {
+                    console.log(value);
+                })
             })
         }
 
