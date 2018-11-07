@@ -11,9 +11,14 @@
     <input type="text" placeholder="Search..." name="search" id="txtSearch">
     <input type="button" value="search" id="searchButton">
     <br>
+    <div id="output">
 
+    </div>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
+        // on video13_6.mp4
+        // stopped at 4:05
+
         $(document).ready(function() {
             $('#searchButton').click(searchYoutube);
             // $('#searchButton2').click(searchWSP);
@@ -34,9 +39,16 @@
                     //pageToken: 'CBkQAA'
                 }
             }).done(function(data) {
+                var html = '';
+                var nextPage = data.nextPageToken;
+                var prevPage = data.prevPageToken;
+
                 $.each(data['items'], function(index, value) {
                     console.log(value);
+                    console.log(value.snippet.title);
+                    console.log(value.snippet.thumbnails.medium);
                 })
+                $('#output').html(html);
             })
         }
 
