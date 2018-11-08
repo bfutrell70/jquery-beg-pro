@@ -16,8 +16,6 @@
     </div>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
-        // on video13_6.mp4
-        // stopped at 4:05
 
         $(document).ready(function() {
             $('#searchButton').click(searchYoutube);
@@ -45,8 +43,10 @@
 
                 $.each(data['items'], function(index, value) {
                     console.log(value);
+                    console.log(value.id.videoId);
                     console.log(value.snippet.title);
                     console.log(value.snippet.thumbnails.medium);
+
                 })
                 $('#output').html(html);
             })
