@@ -10,13 +10,18 @@
     <label for="search">Enter Search text</label>
     <input type="text" placeholder="Search..." name="search" id="txtSearch">
     <input type="button" value="search" id="searchButton">
+    <div class="buttonOptions">
+        <input type="button" value="Previous" id="pToken">
+        <input type="button" value="Next" id="nToken">
+    </div>
     <br>
     <div id="output">
 
     </div>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
-
+        var pageToken = {};
+        
         $(document).ready(function() {
             $('#searchButton').click(searchYoutube);
             // $('#searchButton2').click(searchWSP);
@@ -25,6 +30,7 @@
         function searchYoutube() {
             var url = 'https://www.googleapis.com/youtube/v3/search';
             var searchText = encodeURI($('#txtSearch').val());
+
             $.ajax({
                 url: url,
                 dataType: 'json',
@@ -33,13 +39,13 @@
                     q: searchText,
                     part: 'snippet',
                     key: 'AIzaSyAoRJ_lJh1RmVR3nboH1GzHK8aKK-b1VvE',
-                    maxResults: 25  //,
-                    //pageToken: 'CBkQAA'
+                    maxResults: 25,
+                    pageToken: pageToken.current
                 }
             }).done(function(data) {
                 var html = '';
-                var nextPage = data.nextPageToken;
-                var prevPage = data.prevPageToken;
+                pageToken.nextPage = data.nextPageToken;
+                pageToken.prevPage = data.prevPageToken;
 
                 $.each(data['items'], function(index, value) {
                     //console.log(value);
@@ -51,6 +57,8 @@
                     html += '</div>';
                 })
                 $('#output').html(html);
+
+                console.log(pageToken);
             })
         }
 
