@@ -43,9 +43,16 @@
 
                 $.each(data['items'], function(index, value) {
                     console.log(value);
+
+                    html += '<div>';
+                    html += '<div class="title">' + value.snippet.title + '</div>';
+                    html += '<div class="url">' + value.id.videoId + '</div>';
+                    html += '<div><img class="thumbnail" src="' + value.snippet.thumbnails.medium.url + '"></div>';
+                    html += '</div>';
+
                     console.log(value.id.videoId);
                     console.log(value.snippet.title);
-                    console.log(value.snippet.thumbnails.medium);
+                    console.log(value.snippet.thumbnails.medium.url);
 
                 })
                 $('#output').html(html);
