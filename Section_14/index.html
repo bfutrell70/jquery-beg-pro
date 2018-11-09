@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <style>
-
+        
     </style>
 </head>
 
@@ -34,6 +34,8 @@
 
             function startGame() {
                 // make game board
+                makeGameBoard();
+
                 gameover = false;
                 score = 0;
                 $('.score').text(score);
@@ -50,6 +52,18 @@
             function gameend() {
                 gameover = true;
                 $('.message').html('GAME OVER');
+            }
+
+            function makeGameBoard() {
+                var moles = 8;
+                var html = '';
+
+                for (var mole=0; mole < moles; mole++) {
+                    html += '<div class="hole hole' + mole + '"><div class="mole"></div>';
+                    html += '<div class="dirt"></div></div>';
+                }
+
+                $('.game').html(html);
             }
         })
 
