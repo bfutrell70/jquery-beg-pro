@@ -8,7 +8,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <style>
-        
+        .game {
+            width: 1000px;
+            margin: auto;
+        }
+        .hole {
+            display: inline-block;
+            margin: 10px;
+            width: 20%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        .dirt {
+            background-image: url(images/whackamole-ground.png);
+            background-size: cover;
+            z-index: 10;
+            position: absolute;
+            height: 50px;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+        }
+        .mole {
+            background-image: url(images/whackamole-mole.png);
+            background-size: cover;
+            z-index: 3;
+            position: absolute;
+            height: 250px;
+            top: 50px;
+            left: 0px;
+            width: 100%;
+            cursor:  crosshair;
+        }
     </style>
 </head>
 
