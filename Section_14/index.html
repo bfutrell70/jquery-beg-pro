@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- 
+        Section 14.6
+        stopped at 6:34
+    -->
+
     <style>
         .game {
             width: 1000px;
@@ -36,7 +41,7 @@
             z-index: 3;
             position: absolute;
             height: 250px;
-            top: 50px;
+            top: 250px;
             left: 0px;
             width: 100%;
             cursor:  crosshair;
@@ -73,6 +78,7 @@
                 $('.score').text(score);
 
                 // start gameplay
+                startMoles();
 
                 // timer for gameplay
                 // set for 5 seconds
@@ -96,6 +102,22 @@
                 }
 
                 $('.game').html(html);
+            }
+
+            function randomHole() {
+                var hole = Math.floor(Math.random() * $('.hole').length);
+                console.log(hole);
+                return hole;
+            }
+
+            function startMoles() {
+                var jumpUp = $('.hole' + randomHole() + '> .mole');
+                jumpUp.show();
+                jumpUp.animate({
+                    top: '50px'
+                }, 1000)
+                console.log(jumpUp);
+
             }
         })
 
