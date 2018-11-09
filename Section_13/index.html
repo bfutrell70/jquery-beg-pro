@@ -9,13 +9,18 @@
             background-color: black;
             position: absolute;
             border: 2px solid white;
-            width: auto;
+            width: 850px;
             min-height: auto;
             /* this should make it display over everything else */
             z-index: 5000;
+            top: 100px;
+            left: 0px;
+            right: 0px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .overlaybg {
+        .overlayBg {
             background-color: #333;
             opacity: 0.5;
             position: absolute;
@@ -42,17 +47,21 @@
     
     <div class="overlayBg"></div>
     <div class="popup">
-        <a class="close">X</a>
         <!-- <iframe width="560" height="150"
             src="https://www.youtube.com/embed/videoId"
             frameBorder="0" allow="autoplay; encrypted-media"
             allowfullscreen>
         </iframe>  -->
-        <iframe width="560" height="150"
+        <iframe width="800" height="600"
             src="https://www.youtube.com/embed/videoId"
             frameBorder="0" allow="encrypted-media"
             allowfullscreen>
         </iframe>
+    </div>
+    
+    <div class="buttonOptions">
+        <input type="button" value="Previous" class="tokenClass">
+        <input type="button" value="Next"  class="tokenClass">
     </div>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -81,13 +90,15 @@
             $('#output').on('click','.thumbnail', function() {
                 $('.popup').show();
                 $('.overlayBg').show();
-                
+    
+                // scroll to the top of the page before showing the iframe
+                $(window).scrollTop(0);
                 // update the URL for the iFrame with the correct video ID
                 var videoID = $(this).attr("videoID");
                 $('.popup iframe').attr('src', 'https://www.youtube.com/embed/' + videoID);
             })
 
-            $('.close').click(function() {
+            $('.overlayBg').click(function() {
                 $('.popup').hide();
                 $('.overlayBg').hide();
             })
