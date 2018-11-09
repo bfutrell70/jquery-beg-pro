@@ -127,13 +127,13 @@
                 $.each(data['items'], function(index, value) {
                     //console.log(value);
 
-                    html += '<div>';
+                    html += '<span>';
                     html += '<div class="title"><h3>' + value.snippet.title + '</h3></div>';
                     html += '<div class="url">';
                     html += '<a href="https://www.youtube.com/watch?v=' + value.id.videoId + '" target="_blank">'
                     html += value.id.videoId + '</a></div>';
                     html += '<div><img class="thumbnail" src="' + value.snippet.thumbnails.medium.url + '" videoID="' + value.id.videoId + '"></div>';
-                    html += '</div>';
+                    html += '</span>';
                 })
                 $('#output').html(html);
 
