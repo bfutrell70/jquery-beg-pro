@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <style>
-        
+
     </style>
 </head>
 
@@ -26,7 +26,34 @@
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script>
+        var score = 0;
+        var gameover = false;
 
+        $(function() {
+            $('#start').click(startGame);
+
+            function startGame() {
+                // make game board
+                gameover = false;
+                score = 0;
+                $('.score').text(score);
+
+                // start gameplay
+
+                // timer for gameplay
+                // set for 5 seconds
+                setTimeout(function() {
+                    return gameend();
+                }, 5000);
+            }
+
+            function gameend() {
+                gameover = true;
+                $('.message').html('GAME OVER');
+            }
+        })
+
+        
     </script>
 </body>
 
