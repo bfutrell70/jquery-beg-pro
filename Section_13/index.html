@@ -2,7 +2,16 @@
 <html>
 
 <head>
-    <!-- On section 13.10 - stopped at 11:16 -->
+    <!-- 
+        TODO:
+        - display the results horizontally, then vertically
+        - styling of search elements
+        - styling of results
+        - attempt to center video in iframe
+        - DONE! - enable/disable previous/next buttons based on the values of the previous/next page tokens
+    -->
+
+
     <title>jQuery AJAX getting web APIs</title>
     <style>
         .popup {
@@ -39,8 +48,8 @@
     <input type="text" placeholder="Search..." name="search" id="txtSearch">
     <input type="button" value="search" id="searchButton">
     <div class="buttonOptions">
-        <input type="button" value="Previous" class="tokenClass">
-        <input type="button" value="Next"  class="tokenClass">
+        <input type="button" value="Previous" class="tokenClass previous">
+        <input type="button" value="Next"  class="tokenClass next">
     </div>
     <br>
     <div id="output"></div>
@@ -60,8 +69,8 @@
     </div>
     
     <div class="buttonOptions">
-        <input type="button" value="Previous" class="tokenClass">
-        <input type="button" value="Next"  class="tokenClass">
+        <input type="button" value="Previous" class="tokenClass previous">
+        <input type="button" value="Next"  class="tokenClass next">
     </div>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -71,16 +80,12 @@
         $(document).ready(function() {
             // hide previous/next buttons until we search
             $('.buttonOptions').hide();
-            
             $('.popup').hide();
             $('.overlayBg').hide();
 
             $('#searchButton').click(searchYoutube);
-            // $('#searchButton2').click(searchWSP);
 
             $('.tokenClass').click(function() {
-                console.log($(this).val());
-                
                 pageToken.current=$(this).val() == "Next" ? pageToken.nextPage : pageToken.prevPage;
                 searchYoutube();
             });
@@ -124,16 +129,28 @@
                 pageToken.nextPage = data.nextPageToken;
                 pageToken.prevPage = data.prevPageToken;
 
-                $.each(data['items'], function(index, value) {
-                    //console.log(value);
+                if (!data.nextPageToken) {
+                    $('.next').attr('disabled', 'disabled');
+                }
+                else {
+                    $('.next').removeAttr('disabled');
+                }
 
-                    html += '<span>';
+                if (!data.prevPageToken) {
+                    $('.previous').attr('disabled', 'disabled');
+                }
+                else {
+                    $('.previous').removeAttr('disabled');
+                }
+
+                $.each(data['items'], function(index, value) {
+                    html += '<div>';
                     html += '<div class="title"><h3>' + value.snippet.title + '</h3></div>';
                     html += '<div class="url">';
                     html += '<a href="https://www.youtube.com/watch?v=' + value.id.videoId + '" target="_blank">'
                     html += value.id.videoId + '</a></div>';
                     html += '<div><img class="thumbnail" src="' + value.snippet.thumbnails.medium.url + '" videoID="' + value.id.videoId + '"></div>';
-                    html += '</span>';
+                    html += '</div>';
                 })
                 $('#output').html(html);
 
