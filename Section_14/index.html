@@ -115,9 +115,14 @@
                 jumpUp.show();
                 jumpUp.animate({
                     top: '50px'
-                }, 1000)
-                console.log(jumpUp);
+                }, 100);
 
+                setTimeout(function() {
+                    jumpUp.animate({
+                        top: '250px'
+                    }, 1000)
+                    startMoles();
+                }, 100)
             }
         })
 
