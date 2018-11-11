@@ -8,68 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- 
-        Section 14.8
+        Section 14.10
+
+        TODO:
+            DONE! - split styling and scripts into separate files
+            - improve styling
+            - adjust images so they are centered and not cut off
     -->
 
-    <style>
-        .button {
-            padding: 20px;
-            font-size: 1.2em;
-            background-color: red;
-            color: white;
-        }
-        .score {
-            background-color: black;
-            color: white;
-            padding: 10px;
-            font-size: 1.5em;
-        }
-        .message {
-            font-size: 1em;
-            padding: 20px;
-        }
-        .game {
-            width: 1000px;
-            margin: auto;
-        }
-        .hole {
-            display: inline-block;
-            margin: 10px;
-            width: 20%;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        .dirt {
-            background-image: url(images/whackamole-ground.png);
-            background-size: cover;
-            z-index: 10;
-            position: absolute;
-            height: 50px;
-            bottom: 0px;
-            left: 0px;
-            width: 100%;
-        }
-        .mole {
-            background-image: url(images/whackamole-mole.png);
-            background-size: cover;
-            z-index: 3;
-            position: absolute;
-            height: 250px;
-            top: 250px;
-            left: 0px;
-            width: 100%;
-            cursor:  crosshair;
-        }
-        .wack {
-            max-width: 100%;
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            display: none;
-            /* display: block; */
-        }
-    </style>
+    <link type="text/css" href="css/mole.css" rel="stylesheet">
 </head>
 
 <body>
@@ -84,102 +31,7 @@
     <div class="game"></div>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script>
-        var score = 0;
-        var gameover = false;
-        var lasthole = 0;
-        $(function() {
-            $('#start').click(startGame);
-
-            $('.game').on('click', '.mole', hitMole);
-
-            // handles hitting a mole
-            function hitMole() {
-                // show the 'whack' image
-                $(this).parent().find('img').show();
-                
-                $(this).hide();
-
-                // fade out the 'whack' image gradually
-                $(this).parent().find('img').fadeOut(1000);
-
-                score++;
-                $('.score').text(score);
-            }
-
-            // handles starting the game (clicking Start Game!)
-            function startGame() {
-                // make game board
-                makeGameBoard();
-
-                gameover = false;
-                score = 0;
-                $('.score').text(score);
-
-                // start gameplay
-                startMoles();
-
-                // timer for gameplay
-                // set for 5 seconds
-                setTimeout(function() {
-                    return gameend();
-                }, 5000);
-            }
-
-            // handles ending the game
-            function gameend() {
-                gameover = true;
-                $('.message').html('GAME OVER');
-            }
-
-            // create the game board
-            function makeGameBoard() {
-                var moles = 8;
-                var html = '';
-
-                for (var mole=0; mole < moles; mole++) {
-                    html += '<div class="hole hole' + mole + '"><div class="mole"></div>';
-                    html += '<img class="wack" src="images/whack.png"><div class="dirt"></div></div>';
-                }
-
-                $('.game').html(html);
-            }
-
-            // randomly selects a hole index
-            function randomHole() {
-                var hole = Math.floor(Math.random() * $('.hole').length);
-                
-                // prevents the hole number from being the same as the previous hole
-                if (hole == lasthole) {
-                    return randomHole();
-                }
-                lasthole = hole;
-                return hole;
-            }
-
-            // randomly pops up a mole and animates it
-            function startMoles() {
-                var jumpUp = $('.hole' + randomHole() + '> .mole');
-                
-                // randomly generate a delay to lower the molegit log
-                var timer = Math.round(Math.random() * 1000) + 400;
-                
-                jumpUp.show();
-                jumpUp.animate({
-                    top: '50px'
-                }, 100);
-
-                setTimeout(function() {
-                    jumpUp.animate({
-                        top: '250px'
-                    }, 1000)
-                    if (!gameover) startMoles();
-                }, timer)
-            }
-        })
-
-        
-    </script>
+    <script src="scripts/mole.js"></script>
 </body>
 
 </html>
