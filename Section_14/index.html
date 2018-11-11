@@ -65,7 +65,7 @@
     <script>
         var score = 0;
         var gameover = false;
-
+        var lasthole = 0;
         $(function() {
             $('#start').click(startGame);
 
@@ -106,12 +106,21 @@
 
             function randomHole() {
                 var hole = Math.floor(Math.random() * $('.hole').length);
-                console.log(hole);
+                
+                // prevents the hole number from being the same as the previous hole
+                if (hole == lasthole) {
+                    return randomHole();
+                }
+                lasthole = hole;
                 return hole;
             }
 
             function startMoles() {
                 var jumpUp = $('.hole' + randomHole() + '> .mole');
+                
+                // randomly generate a delay to lower the mole
+                var timer = Math.round(Math.random() * 1000) + 400;
+                
                 jumpUp.show();
                 jumpUp.animate({
                     top: '50px'
@@ -121,8 +130,8 @@
                     jumpUp.animate({
                         top: '250px'
                     }, 1000)
-                    startMoles();
-                }, 100)
+                    if (!gameover) startMoles();
+                }, timer)
             }
         })
 
