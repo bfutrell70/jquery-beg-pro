@@ -61,6 +61,14 @@
             width: 100%;
             cursor:  crosshair;
         }
+        .wack {
+            max-width: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+            /* display: block; */
+        }
     </style>
 </head>
 
@@ -87,7 +95,14 @@
 
             // handles hitting a mole
             function hitMole() {
+                // show the 'whack' image
+                $(this).parent().find('img').show();
+                
                 $(this).hide();
+
+                // fade out the 'whack' image gradually
+                $(this).parent().find('img').fadeOut(1000);
+
                 score++;
                 $('.score').text(score);
             }
@@ -124,7 +139,7 @@
 
                 for (var mole=0; mole < moles; mole++) {
                     html += '<div class="hole hole' + mole + '"><div class="mole"></div>';
-                    html += '<div class="dirt"></div></div>';
+                    html += '<img class="wack" src="images/whack.png"><div class="dirt"></div></div>';
                 }
 
                 $('.game').html(html);
