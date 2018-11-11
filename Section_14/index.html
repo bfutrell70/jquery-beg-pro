@@ -85,13 +85,14 @@
 
             $('.game').on('click', '.mole', hitMole);
 
+            // handles hitting a mole
             function hitMole() {
-                console.log($(this));
                 $(this).hide();
                 score++;
                 $('.score').text(score);
             }
 
+            // handles starting the game (clicking Start Game!)
             function startGame() {
                 // make game board
                 makeGameBoard();
@@ -110,11 +111,13 @@
                 }, 5000);
             }
 
+            // handles ending the game
             function gameend() {
                 gameover = true;
                 $('.message').html('GAME OVER');
             }
 
+            // create the game board
             function makeGameBoard() {
                 var moles = 8;
                 var html = '';
@@ -127,6 +130,7 @@
                 $('.game').html(html);
             }
 
+            // randomly selects a hole index
             function randomHole() {
                 var hole = Math.floor(Math.random() * $('.hole').length);
                 
@@ -138,6 +142,7 @@
                 return hole;
             }
 
+            // randomly pops up a mole and animates it
             function startMoles() {
                 var jumpUp = $('.hole' + randomHole() + '> .mole');
                 
