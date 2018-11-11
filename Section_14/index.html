@@ -8,11 +8,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- 
-        Section 14.6
-        stopped at 6:34
+        Section 14.8
     -->
 
     <style>
+        .button {
+            padding: 20px;
+            font-size: 1.2em;
+            background-color: red;
+            color: white;
+        }
+        .score {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 1.5em;
+        }
+        .message {
+            font-size: 1em;
+            padding: 20px;
+        }
         .game {
             width: 1000px;
             margin: auto;
@@ -51,13 +66,12 @@
 
 <body>
     <h1>
-        Section 14 - jQuery Whackamole Exercise!<br>
-        Score:<span class="score">0</span>
+        Section 14 - jQuery Whackamole Exercise! Score:<span class="score">0</span>
     </h1>
 
     <div class="message"></div>
 
-    <button id="start">Start Game!</button>
+    <button class="button" id="start">Start Game!</button>
 
     <div class="game"></div>
 
@@ -68,6 +82,15 @@
         var lasthole = 0;
         $(function() {
             $('#start').click(startGame);
+
+            $('.game').on('click', '.mole', hitMole);
+
+            function hitMole() {
+                console.log($(this));
+                $(this).hide();
+                score++;
+                $('.score').text(score);
+            }
 
             function startGame() {
                 // make game board
@@ -118,7 +141,7 @@
             function startMoles() {
                 var jumpUp = $('.hole' + randomHole() + '> .mole');
                 
-                // randomly generate a delay to lower the mole
+                // randomly generate a delay to lower the molegit log
                 var timer = Math.round(Math.random() * 1000) + 400;
                 
                 jumpUp.show();
